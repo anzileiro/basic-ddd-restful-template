@@ -5,10 +5,11 @@
     "main": "build/src/index.js",
     "scripts": {
         "pre-build": "rm -rf build/",
-        "build": "babel ./ --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored --source-maps",
-        "start": "node -r dotenv/config build/src/index.js",
-        "dev": "DEBUG=TS-PROJECT:* ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify -r dotenv/config src/index.ts",
-        "test": "NODE_ENV=test node -r dotenv/config node_modules/.bin/jest test --detectOpenHandles",
+        "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
+        "start": "node build/index.js",
+        "start:env": "node -r dotenv/config build/index.js",
+        "dev": "ts-node-dev -r tsconfig-paths/register -r dotenv/config --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
+        "test": "jest --passWithNoTests",
         "coverage": "jest --coverage",
         "commit": "commit-wizard",
         "lint": "eslint 'src/**' --fix"
@@ -71,8 +72,8 @@
         }
     },
     "lint-staged": {
-        "*.js": [
-            "eslint 'src/**' --fix",
+        "*.ts": [
+            "npm run lint",
             "npm run test",
             "git add"
         ]

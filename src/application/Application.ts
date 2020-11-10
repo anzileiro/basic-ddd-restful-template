@@ -1,6 +1,5 @@
-import MessageSplitter from '@root/src/domain/tweets/MessageSplitter';
-import Tweet from '@root/src/domain/tweets/Tweet';
-
+import MessageSplitter from '@domain/tweets/MessageSplitter';
+import Tweet from '@domain/tweets/Tweet';
 import Web from '@infrastructure/web/repository/Tweets';
 
 export default class Application {
