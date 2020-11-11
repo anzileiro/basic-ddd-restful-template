@@ -6,7 +6,7 @@
     "scripts": {
         "pre-build": "rm -rf build/",
         "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
-        "start": "node build/index.js",
+        "start": "TWEETS_WEB_HOST=https://n8e480hh63o547stou3ycz5lwz0958.herokuapp.com/1.1/ TWEETS_WEB_AUTHORIZE_PATH=auth TWEETS_WEB_TWEETS_PATH=statuses/home_timeline.json node build/index.js",
         "start:env": "node -r dotenv/config build/index.js",
         "dev": "ts-node-dev -r tsconfig-paths/register -r dotenv/config --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
         "test": "jest --passWithNoTests",
