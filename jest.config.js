@@ -7,4 +7,11 @@ module.exports = {
   },
   preset: 'ts-jest',
   testEnvironment: 'node',
+  roots: ['<rootDir>/src', '<rootDir>/test'],
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+  },
+  collectCoverageFrom: ['<rootDir>/src/**/*'],
+  collectCoverage: true,
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
 };

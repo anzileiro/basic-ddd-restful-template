@@ -33,8 +33,10 @@
         }
     },
     "include": [
-        "src/**/*",
-        "test/**/*",
-        "cli/**/*"
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
     ]
 }

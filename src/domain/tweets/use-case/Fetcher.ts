@@ -1,6 +1,7 @@
 import Splitter from '@domain/tweets/Splitter';
 import Factory from '@domain/tweets/Factory';
 import Repository from '@infrastructure/web/repository/Tweets';
+import Message from '@domain/shared/Message';
 
 export default class Fetcher {
   private factory: Factory;
@@ -15,10 +16,12 @@ export default class Fetcher {
     this.factory = factory;
   }
 
-  public async execute(): Promise<any> {
+  public async execute(): Promise<Message[]> {
     const tweets = await this.repository.fetchAll();
 
-    tweets.map((item) => this.splitter.addMessages(this.factory.createTweetFromRepository(item)));
+    tweets.forEach((item) => {
+      this.splitter.addMessages(this.factory.createTweetFromRepository(item));
+    });
 
     return this.splitter.listMessages();
   }
