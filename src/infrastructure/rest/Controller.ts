@@ -2,7 +2,7 @@ import FileSystem from 'fs';
 import Path from 'path';
 
 export default class Controller {
-    private CONTROLLER_PATH: string = './controllers/';
+    private CONTROLLER_PATH: string = '../../application/rest/v1/controllers/';
 
     public async setup(): Promise<any[]> {
       const directory: string[] = await FileSystem.readdirSync(

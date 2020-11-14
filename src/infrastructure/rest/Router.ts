@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { Router as HttpRouter } from 'express';
-import Controller from '@application/rest/v1/Controller';
+import Controller from '@infrastructure/rest/Controller';
 
 export default class Router {
   private httpRouter: HttpRouter;
