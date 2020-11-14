@@ -21,7 +21,11 @@
     "import/prefer-default-export": "off",
     "class-methods-use-this": "off",
     "no-useless-constructor": "off",
-    "no-empty-function": "off"
+    "no-empty-function": "off",
+    "import/no-dynamic-require": "off",
+    "global-require": "off",
+    "dot-notation": "off",
+    "new-cap": "off"
   },
   "plugins": [
     "@typescript-eslint",
