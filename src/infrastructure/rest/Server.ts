@@ -1,6 +1,7 @@
 import HttpServer, { Express } from 'express';
 import Configuration from '@infrastructure/rest/Configuration';
 import Router from '@infrastructure/rest/Router';
+import Logger from '@infrastructure/logger/Logger';
 
 export default class Server {
     private server: Express;
@@ -13,7 +14,7 @@ export default class Server {
       this.server.use(await new Router().setup());
 
       this.server.listen(Configuration.HTTP_PORT, () => {
-        console.log('http server running');
+        Logger.getInstance().info('http server running');
       });
     }
 }
