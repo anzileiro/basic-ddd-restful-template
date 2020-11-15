@@ -14,7 +14,7 @@ export default class Server {
       this.server.use(await new Router().setup());
 
       this.server.listen(Configuration.HTTP_PORT, () => {
-        Logger.getInstance().info('http server running');
+        Logger.getInstance().info({ message: 'info' });
       });
     }
 }
